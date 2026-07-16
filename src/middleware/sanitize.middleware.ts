@@ -40,11 +40,11 @@ export const sanitize = (req: Request, _res: Response, next: NextFunction): void
   }
   
   if (req.query && typeof req.query === 'object') {
-    req.query = sanitizeObject(req.query as Record<string, unknown>);
+    req.query = sanitizeObject(req.query as Record<string, unknown>) as typeof req.query;
   }
   
   if (req.params && typeof req.params === 'object') {
-    req.params = sanitizeObject(req.params as Record<string, unknown>);
+    req.params = sanitizeObject(req.params as Record<string, unknown>) as typeof req.params;
   }
   
   next();

@@ -1,7 +1,7 @@
 import { User, IUser } from '../user/user.model';
 import { generateToken } from '../../utils/jwt';
 import { AppError } from '../../middleware/error.middleware';
-import { JwtPayload } from '../../../shared/types';
+import { JwtPayload } from '../../types/shared';
 
 interface RegisterInput {
   name: string;

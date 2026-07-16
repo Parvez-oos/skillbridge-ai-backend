@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { verifyToken } from '../utils/jwt';
 import { sendError } from '../utils/response';
 import { User, IUser } from '../features/user/user.model';
-import { RequestUser } from '../../shared/types';
+import { RequestUser } from '../types/shared';
 
 declare global {
   namespace Express {

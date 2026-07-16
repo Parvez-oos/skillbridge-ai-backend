@@ -5,7 +5,7 @@ import {
   UpdateLearningPathInput,
   QueryLearningPathInput,
 } from './learning-path.validation';
-import { sendSuccess } from '../../utils/response';
+import { sendSuccess, sendError } from '../../utils/response';
 
 export const createLearningPath = async (
   req: Request<{}, {}, CreateLearningPathInput>,
@@ -14,6 +14,10 @@ export const createLearningPath = async (
 ) => {
   try {
     const creatorId = req.user?._id;
+    if (!creatorId) {
+      sendError(res, 'User not authenticated', 401);
+      return;
+    }
     const learningPath = await learningPathService.createLearningPath(
       req.body,
       creatorId
@@ -103,6 +107,10 @@ export const getMyLearningPaths = async (
 ) => {
   try {
     const creatorId = req.user?._id;
+    if (!creatorId) {
+      sendError(res, 'User not authenticated', 401);
+      return;
+    }
     const page = parseInt(req.query.page as string) || 1;
     const limit = parseInt(req.query.limit as string) || 10;
     const result = await learningPathService.getMyLearningPaths(

@@ -1,5 +1,5 @@
 import { Response } from 'express';
-import { ApiResponse, PaginationMeta } from '../../shared/types';
+import { ApiResponse, PaginationMeta } from '../types/shared';
 
 export const sendSuccess = <T>(
   res: Response,

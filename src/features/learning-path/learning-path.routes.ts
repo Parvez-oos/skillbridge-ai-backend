@@ -1,4 +1,4 @@
-import { Router } from 'express';
+import { Router, RequestHandler } from 'express';
 import * as learningPathController from './learning-path.controller';
 import { authenticate } from '../../middleware/auth.middleware';
 import { authorize } from '../../middleware/role.middleware';
@@ -13,8 +13,8 @@ const router = Router();
 
 router.get(
   '/',
-  validate(queryLearningPathSchema),
-  learningPathController.getLearningPaths
+  validate(queryLearningPathSchema, 'query'),
+  learningPathController.getLearningPaths as unknown as RequestHandler
 );
 
 router.get('/categories', learningPathController.getCategories);
