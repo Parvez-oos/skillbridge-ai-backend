@@ -13,6 +13,7 @@ import learningPathRoutes from './features/learning-path/learning-path.routes';
 import blogRoutes from './features/blog/blog.routes';
 import dashboardRoutes from './features/dashboard/dashboard.routes';
 import aiRoutes from './features/ai/ai.routes';
+import adminRoutes from './features/admin/admin.routes';
 import { errorHandler } from './middleware/error.middleware';
 import { sanitize } from './middleware/sanitize.middleware';
 
@@ -101,6 +102,7 @@ app.use('/api/learning-paths', learningPathRoutes);
 app.use('/api/blog', blogRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/ai', aiRoutes);
+app.use('/api/admin', adminRoutes);
 
 app.use(errorHandler);
 
